@@ -1,0 +1,51 @@
+.row{
+    margin-left: 20px;
+    color: #fff;
+}
+.posters{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.poster{
+    max-height: 250px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.smallPoster{
+    max-height: 150px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+.poster:hover{
+    transform: scale(1.1);
+}
+.smallPoster:hover{
+    transform: scale(1.1);
+
+}
+.poster::before,
+.smallPoster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust the opacity to control darkness */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Adjust the duration and easing as needed */
+    pointer-events: none; /* Allows mouse events to go through the pseudo-element */
+}
+
+.poster:hover::before,
+.smallPoster:hover::before {
+    opacity: 1;
+}
